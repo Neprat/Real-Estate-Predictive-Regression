@@ -1,0 +1,23 @@
+library(shiny)
+library(shinyWidgets)
+library(shinydashboard)
+library(shinycssloaders)
+library(DT)
+library(ggplot2)
+library(ggpubr)
+library(stargazer)
+library(corrplot)
+library(recipes)
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(parsnip)
+library(rsconnect)
+RealEstateExcel <- read_excel("data/Real estate valuation data set.xlsx") 
+RealEstateDataset <- data.frame(RealEstateExcel)
+names(RealEstateDataset) <- c("Number","X1","X2","X3","X4","X5","X6","Y")
+NewEstateDataset <- RealEstateDataset[-c(1,6,7)]
+RealEstateDataset <- RealEstateDataset[-c(1)]
+
+AttributeChoices <- c("X1","X2","X3","X4")
+DependentChoice <- c("Y")
